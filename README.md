@@ -1,6 +1,6 @@
 # ARTE1000 — Tema WordPress
 
-Tema comercial para a **ARTE1000 Móveis Artesanais**: móveis e objetos em fibra natural feitos à mão na Serra Fluminense (loja em Itaipava, Petrópolis/RJ).
+Tema comercial para a **ARTE1000 Móveis Artesanais**: cestarias, móveis, luminárias e objetos em **junco natural** feitos à mão na Serra Fluminense, com preço de fábrica e loja física em Itaipava, Petrópolis/RJ. Assinatura da marca: **ARTE 1000**.
 
 ## Identidade visual
 
@@ -8,14 +8,14 @@ Tema comercial para a **ARTE1000 Móveis Artesanais**: móveis e objetos em fibr
 |---|---|---|
 | Creme | `#F6F1E7` | Fundo principal |
 | Linho | `#EAE0CC` | Seções alternadas |
-| Fibra | `#C9A46A` / `#9A7338` | Destaques, textura de trama |
+| Junco | `#C9A46A` / `#9A7338` | Destaques, textura de trama |
 | Serra | `#2E3A2B` / `#1F281D` | Faixas, rodapé, botões secundários |
 | Terracota | `#B5623A` | Chamadas para ação (comprar, orçamento) |
 | Carvão | `#1E1A15` | Texto |
 
 Tipografia: **Fraunces** (títulos, serifada com personalidade artesanal) + **Manrope** (textos e interface).
 
-Assinaturas visuais: imagens em formato de **arco** (remetendo ao encosto de uma poltrona de vime), textura de **trama** em SVG usada enquanto não há fotos, selo giratório "peça única · feita à mão" e faixa rolante com os valores da marca.
+Assinaturas visuais: imagens em formato de **arco** (remetendo ao encosto de uma poltrona de junco), **borda ondulada** entre seções (inspirada no acabamento recortado das mesas e cestarias), textura de **trama** em SVG usada enquanto não há fotos, selo giratório "peça única · feita à mão" e faixa rolante com os valores da marca.
 
 ## Instalação
 
@@ -30,7 +30,8 @@ Assinaturas visuais: imagens em formato de **arco** (remetendo ao encosto de uma
 - **Home — Destaque principal**: textos, botões e duas imagens (vertical + detalhe circular).
 - **Home — Nossa essência**: texto institucional e imagem.
 - **Home — Sob medida**: chamada para orçamento personalizado.
-- **Home — Números**: 4 destaques (ex.: +20 mil seguidores).
+- **Home — Números**: 4 destaques (ex.: +19 mil seguidores, preço de fábrica).
+- **Home — Entrega**: Correios, transportadora e retirada na loja (textos editáveis).
 - **Rodapé**: texto da marca, mapa e botão flutuante de WhatsApp.
 
 Logo: **Personalizar → Identidade do site → Logo**. Sem logo, o tema exibe a marca tipográfica **ARTE*1000***.
@@ -43,6 +44,15 @@ Menus: **Aparência → Menus** — locais "Menu principal" e "Menu do rodapé".
 - Produtos marcados como **destaque** (estrela) aparecem na vitrine da home; sem destaques, entram os mais recentes.
 - Página do produto com botão **"Comprar ou personalizar pelo WhatsApp"** (mensagem já inclui nome e link do produto) e selos de confiança.
 - Selo "Feito à mão" nas miniaturas, contador do carrinho com atualização via AJAX.
+
+## Frete (configurar no WooCommerce)
+
+O tema exibe as formas de entrega; o cálculo do frete é feito pelo WooCommerce:
+
+1. **WooCommerce → Configurações → Entrega**: crie a zona "Brasil".
+2. **Retirada na loja**: adicione o método nativo *Retirada no local* (custo zero), com o endereço de Itaipava.
+3. **Correios + transportadoras**: instale o plugin **Melhor Envio** (Correios, Jadlog, Loggi etc.) ou o **Correios para WooCommerce**. Cadastre peso e dimensões em todos os produtos — cestarias volumosas pesam pouco mas ocupam muito espaço, então as dimensões são essenciais para a cotação.
+4. Para móveis grandes, uma alternativa é a classe de entrega "Sob consulta", direcionando o cliente ao botão de WhatsApp.
 
 ## Fotos recomendadas
 

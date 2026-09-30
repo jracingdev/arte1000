@@ -1,6 +1,6 @@
 /* ==========================================================================
    ARTE1000 — Estilos principais
-   Identidade: fibra natural (mel), verde da Serra, terracota, linho e carvão.
+   Identidade: junco natural (mel), verde da Serra, terracota, linho e carvão.
    ========================================================================== */
 
 :root {
@@ -521,4 +521,40 @@ label { font-weight: 600; font-size: .9rem; }
 	.a1-footer__grid { grid-template-columns: 1fr; gap: 32px; }
 	.a1-footer__cta .a1-btn { width: 100%; }
 	.a1-float-wa { width: 54px; height: 54px; right: 16px; bottom: 16px; }
+}
+
+/* Borda ondulada (inspirada no acabamento das mesas e cestarias) ---------- */
+.a1-scallop-t,
+.a1-scallop-b { position: relative; }
+.a1-scallop-t::before,
+.a1-scallop-b::after {
+	content: ""; position: absolute; left: 0; right: 0; z-index: 2; height: 10px; pointer-events: none;
+	background-repeat: repeat-x; background-size: 20px 10px;
+}
+.a1-scallop-t::before { bottom: 100%; background-image: radial-gradient(circle at 10px 10px, var(--a1-sc) 9.5px, transparent 10px); }
+.a1-scallop-b::after { top: 100%; background-image: radial-gradient(circle at 10px 0, var(--a1-sc) 9.5px, transparent 10px); }
+.a1-marquee { --a1-sc: var(--a1-forest); overflow: visible; overflow-x: clip; }
+.a1-custom { --a1-sc: var(--a1-forest-deep); overflow: visible; overflow-x: clip; }
+.a1-footer { --a1-sc: var(--a1-forest-deep); }
+
+/* Entrega ------------------------------------------------------------------- */
+.a1-ship { padding-bottom: clamp(24px, 4vw, 48px); }
+.a1-ship__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 24px); }
+.a1-ship__item {
+	padding: clamp(24px, 3vw, 36px); border-radius: var(--a1-radius);
+	background: var(--a1-white); border: 1px solid var(--a1-line);
+	transition: transform .4s var(--a1-ease), box-shadow .4s var(--a1-ease);
+}
+.a1-ship__item:hover { transform: translateY(-4px); box-shadow: var(--a1-shadow); }
+.a1-ship__icon {
+	display: grid; place-items: center; width: 56px; height: 56px; margin-bottom: 22px;
+	border-radius: 50%; background: var(--a1-linen); color: var(--a1-fiber-dark);
+}
+.a1-ship__icon .a1-icon { width: 26px; height: 26px; }
+.a1-ship__item h3 { font-size: 1.5rem; margin-bottom: 8px; }
+.a1-ship__item p { margin: 0; color: var(--a1-muted); font-size: .95rem; }
+@media (max-width: 860px) {
+	.a1-ship__grid { grid-template-columns: 1fr; }
+	.a1-ship__item { display: grid; grid-template-columns: 56px 1fr; column-gap: 18px; align-items: start; }
+	.a1-ship__icon { grid-row: span 2; margin: 0; }
 }

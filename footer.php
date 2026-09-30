@@ -9,7 +9,7 @@ $a1_instagram = arte1000_instagram_url();
 $a1_email     = arte1000_opt( 'email' );
 ?>
 
-<footer class="a1-footer">
+<footer class="a1-footer a1-scallop-t">
 	<div class="a1-container">
 		<div class="a1-footer__cta">
 			<h2 class="a1-footer__headline"><?php esc_html_e( 'Traga a natureza para dentro de casa.', 'arte1000' ); ?></h2>
@@ -79,7 +79,12 @@ $a1_email     = arte1000_opt( 'email' );
 
 		<div class="a1-footer__bottom">
 			<p>&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>. <?php esc_html_e( 'Todos os direitos reservados.', 'arte1000' ); ?></p>
-			<p><?php esc_html_e( 'Feito à mão na Serra Fluminense.', 'arte1000' ); ?></p>
+			<p>
+				<?php esc_html_e( 'Feito à mão na Serra Fluminense', 'arte1000' ); ?>
+				<?php if ( arte1000_opt( 'signature' ) ) : ?>
+					· <?php echo esc_html( arte1000_opt( 'signature' ) ); ?>
+				<?php endif; ?>
+			</p>
 		</div>
 	</div>
 </footer>

@@ -33,13 +33,13 @@ $a1_instagram = arte1000_instagram_url();
 				</div>
 				<ul class="a1-hero__points">
 					<li><?php echo arte1000_icon( 'hand' ); // phpcs:ignore WordPress.Security.EscapeOutput ?> <?php esc_html_e( 'Feito à mão', 'arte1000' ); ?></li>
-					<li><?php echo arte1000_icon( 'leaf' ); // phpcs:ignore WordPress.Security.EscapeOutput ?> <?php esc_html_e( 'Fibra natural', 'arte1000' ); ?></li>
-					<li><?php echo arte1000_icon( 'truck' ); // phpcs:ignore WordPress.Security.EscapeOutput ?> <?php esc_html_e( 'Envio para todo o Brasil', 'arte1000' ); ?></li>
+					<li><?php echo arte1000_icon( 'leaf' ); // phpcs:ignore WordPress.Security.EscapeOutput ?> <?php esc_html_e( 'Junco natural', 'arte1000' ); ?></li>
+					<li><?php echo arte1000_icon( 'tag' ); // phpcs:ignore WordPress.Security.EscapeOutput ?> <?php esc_html_e( 'Preço de fábrica', 'arte1000' ); ?></li>
 				</ul>
 			</div>
 
 			<div class="a1-hero__visual" data-a1-reveal>
-				<div class="a1-hero__main a1-media"><?php arte1000_media( 'hero_image', 'a1-weave--tall', __( 'Móvel artesanal em fibra natural', 'arte1000' ) ); ?></div>
+				<div class="a1-hero__main a1-media"><?php arte1000_media( 'hero_image', 'a1-weave--tall', __( 'Peça artesanal em junco natural', 'arte1000' ) ); ?></div>
 				<div class="a1-hero__detail a1-media"><?php arte1000_media( 'hero_image_2', 'a1-weave--dark', __( 'Detalhe da trama artesanal', 'arte1000' ) ); ?></div>
 				<div class="a1-hero__seal" aria-hidden="true">
 					<svg viewBox="0 0 120 120">
@@ -53,16 +53,16 @@ $a1_instagram = arte1000_instagram_url();
 	</section>
 
 	<!-- Faixa de valores -->
-	<div class="a1-marquee" aria-hidden="true">
+	<div class="a1-marquee a1-scallop-t a1-scallop-b" aria-hidden="true">
 		<div class="a1-marquee__track">
 			<?php
 			$a1_marquee = array(
-				__( 'Fibra natural', 'arte1000' ),
+				__( 'Junco natural', 'arte1000' ),
 				__( 'Tramado à mão', 'arte1000' ),
+				__( 'Preço de fábrica', 'arte1000' ),
+				__( 'Loja física em Itaipava', 'arte1000' ),
 				__( 'Sob medida', 'arte1000' ),
-				__( 'Fábrica própria', 'arte1000' ),
-				__( 'Serra Fluminense', 'arte1000' ),
-				__( 'Envio para todo o Brasil', 'arte1000' ),
+				__( 'Entregamos para todo o Brasil', 'arte1000' ),
 			);
 			for ( $a1_i = 0; $a1_i < 2; $a1_i++ ) {
 				foreach ( $a1_marquee as $a1_item ) {
@@ -116,12 +116,12 @@ $a1_instagram = arte1000_instagram_url();
 					endforeach;
 				else :
 					$a1_static = array(
-						__( 'Poltronas', 'arte1000' )            => __( 'Conforto tramado para a sala e a varanda', 'arte1000' ),
-						__( 'Cadeiras', 'arte1000' )             => __( 'Para a mesa de jantar e a área gourmet', 'arte1000' ),
-						__( 'Mesas', 'arte1000' )                => __( 'Centro, lateral e jantar', 'arte1000' ),
-						__( 'Luminárias', 'arte1000' )           => __( 'Luz filtrada pela trama natural', 'arte1000' ),
-						__( 'Cestos & organização', 'arte1000' ) => __( 'Beleza que também guarda', 'arte1000' ),
-						__( 'Esculturas & decor', 'arte1000' )   => __( 'Peças autorais que viram assunto', 'arte1000' ),
+						__( 'Cestarias', 'arte1000' )             => __( 'Cestos, baús e cachepôs que organizam com beleza', 'arte1000' ),
+						__( 'Luminárias & pendentes', 'arte1000' ) => __( 'Luz filtrada pela trama do junco', 'arte1000' ),
+						__( 'Poltronas & cadeiras', 'arte1000' )   => __( 'Conforto tramado para a sala e a varanda', 'arte1000' ),
+						__( 'Cômodas & cabeceiras', 'arte1000' )   => __( 'Gavetas e criados-mudos feitos à mão', 'arte1000' ),
+						__( 'Mesas & apoio', 'arte1000' )          => __( 'Laterais, carrinhos e geleiras', 'arte1000' ),
+						__( 'Esculturas & decor', 'arte1000' )     => __( 'Peças autorais que viram assunto', 'arte1000' ),
 					);
 					foreach ( $a1_static as $a1_name => $a1_desc ) :
 						?>
@@ -168,7 +168,7 @@ $a1_instagram = arte1000_instagram_url();
 	<section class="a1-section a1-about" id="essencia">
 		<div class="a1-container a1-about__grid">
 			<div class="a1-about__media a1-media" data-a1-reveal>
-				<?php arte1000_media( 'about_image', 'a1-weave--tall', __( 'Artesão tramando fibra natural', 'arte1000' ) ); ?>
+				<?php arte1000_media( 'about_image', 'a1-weave--tall', __( 'Artesão tramando junco natural', 'arte1000' ) ); ?>
 				<div class="a1-about__quote">
 					<p><?php esc_html_e( '“Mil fios, mil gestos, uma peça única.”', 'arte1000' ); ?></p>
 				</div>
@@ -182,8 +182,8 @@ $a1_instagram = arte1000_instagram_url();
 					<li>
 						<span class="a1-steps__n">01</span>
 						<div>
-							<h3><?php esc_html_e( 'Fibra selecionada', 'arte1000' ); ?></h3>
-							<p><?php esc_html_e( 'Escolhemos fibras naturais resistentes, preparadas para durar.', 'arte1000' ); ?></p>
+							<h3><?php esc_html_e( 'Junco selecionado', 'arte1000' ); ?></h3>
+							<p><?php esc_html_e( 'Trabalhamos com junco natural resistente, preparado para durar anos.', 'arte1000' ); ?></p>
 						</div>
 					</li>
 					<li>
@@ -220,7 +220,7 @@ $a1_instagram = arte1000_instagram_url();
 	</section>
 
 	<!-- Sob medida -->
-	<section class="a1-custom" id="sob-medida">
+	<section class="a1-custom a1-scallop-t" id="sob-medida">
 		<div class="a1-custom__bg a1-media"><?php arte1000_media( 'custom_image', 'a1-weave--dark', '' ); ?></div>
 		<div class="a1-container a1-custom__inner" data-a1-reveal>
 			<p class="a1-eyebrow a1-eyebrow--light"><?php esc_html_e( 'Projetos exclusivos', 'arte1000' ); ?></p>
@@ -265,6 +265,35 @@ $a1_instagram = arte1000_instagram_url();
 					endwhile;
 					wp_reset_postdata();
 					?>
+				</div>
+			</div>
+		</section>
+	<?php endif; ?>
+
+	<?php if ( arte1000_opt( 'show_shipping' ) ) : ?>
+		<!-- Entrega -->
+		<section class="a1-section a1-ship" id="entrega">
+			<div class="a1-container">
+				<header class="a1-section__head" data-a1-reveal>
+					<div>
+						<p class="a1-eyebrow"><?php echo esc_html( arte1000_opt( 'ship_eyebrow' ) ); ?></p>
+						<h2 class="a1-section__title"><?php echo esc_html( arte1000_opt( 'ship_title' ) ); ?></h2>
+					</div>
+				</header>
+				<div class="a1-ship__grid">
+					<?php
+					$a1_ship_icons = array( 1 => 'box', 2 => 'truck', 3 => 'store' );
+					foreach ( $a1_ship_icons as $a1_i => $a1_icon ) :
+						if ( ! arte1000_opt( "ship_{$a1_i}_title" ) ) {
+							continue;
+						}
+						?>
+						<div class="a1-ship__item" data-a1-reveal>
+							<span class="a1-ship__icon"><?php echo arte1000_icon( $a1_icon ); // phpcs:ignore WordPress.Security.EscapeOutput ?></span>
+							<h3><?php echo esc_html( arte1000_opt( "ship_{$a1_i}_title" ) ); ?></h3>
+							<p><?php echo esc_html( arte1000_opt( "ship_{$a1_i}_text" ) ); ?></p>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</section>

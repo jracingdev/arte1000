@@ -103,10 +103,10 @@ add_action( 'woocommerce_single_product_summary', 'arte1000_product_whatsapp_but
  */
 function arte1000_product_trust() {
 	$items = array(
-		'hand'   => __( 'Feito à mão, peça única', 'arte1000' ),
-		'ruler'  => __( 'Medidas sob encomenda', 'arte1000' ),
-		'truck'  => __( 'Envio para todo o Brasil', 'arte1000' ),
-		'shield' => __( 'Compra segura', 'arte1000' ),
+		'hand'  => __( 'Feito à mão em junco natural', 'arte1000' ),
+		'tag'   => __( 'Preço de fábrica', 'arte1000' ),
+		'box'   => __( 'Envio por Correios ou transportadora', 'arte1000' ),
+		'store' => __( 'Retirada na loja em Itaipava', 'arte1000' ),
 	);
 	echo '<ul class="a1-trust">';
 	foreach ( $items as $icon => $label ) {

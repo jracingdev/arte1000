@@ -23,12 +23,13 @@ function arte1000_defaults() {
 		'address'          => 'Estrada do Contorno, km 63 — Itaipava, Petrópolis/RJ',
 		'hours'            => 'Loja física aberta à visitação — consulte horários pelo WhatsApp',
 		'email'            => '',
-		'topbar_text'      => 'Fábrica própria na Serra Fluminense · Enviamos para todo o Brasil',
+		'topbar_text'      => 'Preço de fábrica · Enviamos por Correios e transportadora para todo o Brasil',
+		'signature'        => 'ARTE 1000',
 
 		// Hero.
-		'hero_eyebrow'     => 'Móveis artesanais em fibra natural',
+		'hero_eyebrow'     => 'Peças artesanais em junco natural',
 		'hero_title'       => 'Tramado à mão, feito para durar gerações.',
-		'hero_text'        => 'Poltronas, cadeiras, mesas e peças decorativas criadas fio a fio por artesãos da Serra Fluminense. Conforto, natureza e personalidade para a sua casa.',
+		'hero_text'        => 'Cestarias, luminárias, poltronas, cômodas e peças decorativas em junco natural, criadas fio a fio na nossa fábrica na Serra Fluminense. Direto do artesão para a sua casa, com preço de fábrica.',
 		'hero_btn1_label'  => 'Ver coleção',
 		'hero_btn1_url'    => '',
 		'hero_btn2_label'  => 'Fale com um artesão',
@@ -38,7 +39,7 @@ function arte1000_defaults() {
 		// Sobre / manifesto.
 		'about_eyebrow'    => 'Nossa essência',
 		'about_title'      => 'Cada peça carrega o tempo, as mãos e a história de quem a criou.',
-		'about_text'       => "A ARTE1000 nasceu do encontro entre a tradição artesanal e o olhar contemporâneo. Em nossa fábrica, na Serra Fluminense, transformamos fibras naturais em móveis e esculturas que unem resistência, conforto e beleza.\n\nNada é feito em série: cada trama é conduzida à mão, com paciência e cuidado, para que a sua peça seja única.",
+		'about_text'       => "A ARTE1000 nasceu do encontro entre a tradição artesanal e o olhar contemporâneo. Em nossa fábrica, na Serra Fluminense, transformamos o junco natural em cestarias, móveis, luminárias e esculturas que unem resistência, conforto e beleza.\n\nNada é feito em série: cada trama é conduzida à mão, com paciência e cuidado, para que a sua peça seja única.",
 		'about_image'      => '',
 
 		// Sob medida.
@@ -47,17 +48,28 @@ function arte1000_defaults() {
 		'custom_image'     => '',
 
 		// Números.
-		'stat_1_number'    => '+20 mil',
-		'stat_1_label'     => 'seguidores acompanhando nosso trabalho',
+		'stat_1_number'    => '+19 mil',
+		'stat_1_label'     => 'seguidores acompanhando nossa produção',
 		'stat_2_number'    => '100%',
-		'stat_2_label'     => 'feito à mão, peça por peça',
-		'stat_3_number'    => 'Sob medida',
-		'stat_3_label'     => 'projetos para casas, pousadas e restaurantes',
+		'stat_2_label'     => 'feito à mão em junco natural',
+		'stat_3_number'    => 'Preço de fábrica',
+		'stat_3_label'     => 'direto de quem produz, sem intermediários',
 		'stat_4_number'    => 'Brasil',
 		'stat_4_label'     => 'entregamos em todo o território nacional',
 
+		// Entrega.
+		'ship_eyebrow'     => 'Entrega',
+		'ship_title'       => 'Do nosso ateliê até a sua porta.',
+		'ship_1_title'     => 'Correios',
+		'ship_1_text'      => 'Ideal para cestarias e peças menores, com código de rastreio para acompanhar a entrega.',
+		'ship_2_title'     => 'Transportadora',
+		'ship_2_text'      => 'Para móveis e volumes maiores, embalados com cuidado e enviados para todo o Brasil.',
+		'ship_3_title'     => 'Retirada na loja',
+		'ship_3_text'      => 'Compre online e retire sem custo de frete na nossa loja física em Itaipava.',
+		'show_shipping'    => true,
+
 		// Rodapé.
-		'footer_about'     => 'Móveis e objetos artesanais em fibra natural, criados à mão na Serra Fluminense para casas cheias de vida.',
+		'footer_about'     => 'Cestarias, móveis e objetos artesanais em junco natural, criados à mão na Serra Fluminense para casas cheias de vida.',
 		'show_map'         => true,
 		'show_float_wa'    => true,
 	);
@@ -117,6 +129,7 @@ function arte1000_customize_register( $wp_customize ) {
 		'arte1000_about'   => __( 'Home — Nossa essência', 'arte1000' ),
 		'arte1000_custom'  => __( 'Home — Sob medida', 'arte1000' ),
 		'arte1000_stats'   => __( 'Home — Números', 'arte1000' ),
+		'arte1000_ship'    => __( 'Home — Entrega', 'arte1000' ),
 		'arte1000_footer'  => __( 'Rodapé', 'arte1000' ),
 	);
 	foreach ( $sections as $id => $title ) {
@@ -135,6 +148,17 @@ function arte1000_customize_register( $wp_customize ) {
 		'hours'            => array( 'arte1000_contact', 'text', __( 'Horário de atendimento', 'arte1000' ) ),
 		'email'            => array( 'arte1000_contact', 'text', __( 'E-mail', 'arte1000' ) ),
 		'topbar_text'      => array( 'arte1000_contact', 'text', __( 'Texto da barra superior', 'arte1000' ) ),
+		'signature'        => array( 'arte1000_contact', 'text', __( 'Assinatura de produção (rodapé)', 'arte1000' ) ),
+
+		'ship_eyebrow'     => array( 'arte1000_ship', 'text', __( 'Chamada pequena', 'arte1000' ) ),
+		'ship_title'       => array( 'arte1000_ship', 'text', __( 'Título', 'arte1000' ) ),
+		'ship_1_title'     => array( 'arte1000_ship', 'text', __( 'Opção 1 — título', 'arte1000' ) ),
+		'ship_1_text'      => array( 'arte1000_ship', 'textarea', __( 'Opção 1 — texto', 'arte1000' ) ),
+		'ship_2_title'     => array( 'arte1000_ship', 'text', __( 'Opção 2 — título', 'arte1000' ) ),
+		'ship_2_text'      => array( 'arte1000_ship', 'textarea', __( 'Opção 2 — texto', 'arte1000' ) ),
+		'ship_3_title'     => array( 'arte1000_ship', 'text', __( 'Opção 3 — título', 'arte1000' ) ),
+		'ship_3_text'      => array( 'arte1000_ship', 'textarea', __( 'Opção 3 — texto', 'arte1000' ) ),
+		'show_shipping'    => array( 'arte1000_ship', 'checkbox', __( 'Exibir seção de entrega na home', 'arte1000' ) ),
 
 		'hero_eyebrow'     => array( 'arte1000_hero', 'text', __( 'Chamada pequena', 'arte1000' ) ),
 		'hero_title'       => array( 'arte1000_hero', 'textarea', __( 'Título', 'arte1000' ) ),
