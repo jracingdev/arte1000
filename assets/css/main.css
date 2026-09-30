@@ -176,11 +176,14 @@ input[type="submit"]:hover { background: var(--a1-terracotta-dark); border-color
 .a1-header__brand { flex: none; }
 .a1-header__actions { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 
-.a1-wordmark { display: inline-flex; flex-direction: column; line-height: 1; text-decoration: none; }
+.a1-brand { display: inline-flex; align-items: center; gap: 14px; color: inherit; text-decoration: none; }
+.a1-brand__logo { display: block; height: var(--a1-logo-h, 56px); width: auto; max-width: min(320px, 60vw); object-fit: contain; }
+.a1-brand.has-both .a1-brand__logo { max-width: 140px; }
+.a1-brand.has-both .a1-wordmark { padding-left: 14px; border-left: 1px solid var(--a1-line); }
+.a1-wordmark { display: inline-flex; flex-direction: column; line-height: 1; }
 .a1-wordmark__name { font-family: var(--a1-serif); font-size: 1.7rem; font-weight: 600; letter-spacing: .04em; }
 .a1-wordmark__name em { font-style: italic; font-weight: 400; color: var(--a1-fiber-dark); letter-spacing: 0; }
 .a1-wordmark__tag { margin-top: 6px; font-size: .62rem; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; color: var(--a1-muted); }
-.custom-logo { max-height: 56px; width: auto; }
 
 .a1-nav { flex: 1; display: flex; align-items: center; justify-content: center; }
 .a1-nav__head, .a1-nav__cta { display: none; }
@@ -415,7 +418,8 @@ label { font-weight: 600; font-size: .9rem; }
 }
 .a1-footer__headline { color: var(--a1-cream); font-size: clamp(2rem, 4.4vw, 3.4rem); max-width: 16ch; margin: 0; }
 .a1-footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; padding: 56px 0; }
-.a1-footer .a1-wordmark { color: var(--a1-cream); margin-bottom: 20px; }
+.a1-footer .a1-brand { color: var(--a1-cream); margin-bottom: 20px; }
+.a1-footer .a1-brand.has-both .a1-wordmark { border-left-color: rgba(246, 241, 231, .2); }
 .a1-footer .a1-wordmark__name em { color: var(--a1-fiber); }
 .a1-footer .a1-wordmark__tag { color: rgba(246, 241, 231, .55); }
 .a1-footer__brand p { max-width: 36ch; }
@@ -473,6 +477,10 @@ label { font-weight: 600; font-size: .9rem; }
 	.a1-header__brand { position: absolute; left: 50%; transform: translateX(-50%); }
 	.a1-wordmark__name { font-size: 1.45rem; }
 	.a1-wordmark__tag { font-size: .55rem; }
+	.a1-header .a1-brand__logo, .a1-nav .a1-brand__logo { height: min(var(--a1-logo-h, 56px), 42px); max-width: 180px; }
+	.a1-header .a1-brand.has-both { gap: 10px; }
+	.a1-header .a1-brand.has-both .a1-wordmark { padding-left: 10px; }
+	.a1-header .a1-brand.has-both .a1-wordmark__tag { display: none; }
 
 	.a1-nav {
 		position: fixed; inset: 0 auto 0 0; z-index: 100; width: min(360px, 88vw);
@@ -505,6 +513,7 @@ label { font-weight: 600; font-size: .9rem; }
 	.a1-topbar p { display: none; }
 	.a1-topbar__inner { justify-content: center; }
 	.a1-hide-sm { display: none; }
+	.a1-header .a1-brand.has-both .a1-wordmark { display: none; }
 	.a1-section__head { flex-direction: column; align-items: flex-start; }
 	.a1-hero__actions .a1-btn { width: 100%; }
 	.a1-hero__seal { width: 96px; height: 96px; right: -4px; }

@@ -21,7 +21,7 @@ $a1_email     = arte1000_opt( 'email' );
 
 		<div class="a1-footer__grid">
 			<div class="a1-footer__brand">
-				<?php arte1000_logo(); ?>
+				<?php arte1000_logo( 'footer' ); ?>
 				<p><?php echo esc_html( arte1000_opt( 'footer_about' ) ); ?></p>
 				<?php if ( $a1_instagram ) : ?>
 					<a class="a1-footer__social" href="<?php echo esc_url( $a1_instagram ); ?>" target="_blank" rel="noopener">

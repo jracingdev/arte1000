@@ -16,6 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function arte1000_defaults() {
 	return array(
+		// Marca.
+		'brand_display'    => 'auto',
+		'brand_tagline'    => 'Móveis Artesanais',
+		'logo_height'      => 56,
+		'footer_logo'      => '',
+
 		// Contato.
 		'whatsapp'         => '5521981683570',
 		'whatsapp_message' => 'Olá! Vim pelo site da ARTE1000 e gostaria de mais informações.',
@@ -109,6 +115,39 @@ function arte1000_sanitize_phone( $value ) {
 }
 
 /**
+ * Modos de exibição da marca no cabeçalho.
+ *
+ * @return array
+ */
+function arte1000_brand_choices() {
+	return array(
+		'auto' => __( 'Automático — logo, se enviada; senão, texto', 'arte1000' ),
+		'both' => __( 'Logo + texto lado a lado', 'arte1000' ),
+		'text' => __( 'Somente texto', 'arte1000' ),
+	);
+}
+
+/**
+ * Sanitiza o modo de exibição da marca.
+ *
+ * @param string $value Valor.
+ * @return string
+ */
+function arte1000_sanitize_brand_display( $value ) {
+	return array_key_exists( $value, arte1000_brand_choices() ) ? $value : 'auto';
+}
+
+/**
+ * Sanitiza a altura da logo (entre 24 e 140 px).
+ *
+ * @param mixed $value Valor.
+ * @return int
+ */
+function arte1000_sanitize_logo_height( $value ) {
+	return max( 24, min( 140, absint( $value ) ) );
+}
+
+/**
  * Registra painel, seções e controles.
  *
  * @param WP_Customize_Manager $wp_customize Customizer.
@@ -138,10 +177,16 @@ function arte1000_customize_register( $wp_customize ) {
 	}
 
 	/*
-	 * Campos: chave => [seção, tipo, rótulo].
-	 * Tipos: text, textarea, url, image, checkbox, phone.
+	 * Campos: chave => [seção, tipo, rótulo, descrição opcional].
+	 * Tipos: text, textarea, url, image, checkbox, phone, brand, number.
+	 * A seção "title_tagline" é a nativa "Identidade do site", onde fica o envio da logo.
 	 */
 	$fields = array(
+		'brand_display'    => array( 'title_tagline', 'brand', __( 'Exibição da marca no cabeçalho', 'arte1000' ) ),
+		'brand_tagline'    => array( 'title_tagline', 'text', __( 'Frase abaixo do nome (modo texto)', 'arte1000' ) ),
+		'logo_height'      => array( 'title_tagline', 'number', __( 'Altura da logo no cabeçalho (px)', 'arte1000' ), __( 'Entre 24 e 140. No celular a logo é reduzida automaticamente.', 'arte1000' ) ),
+		'footer_logo'      => array( 'title_tagline', 'image', __( 'Logo para o rodapé (versão clara)', 'arte1000' ), __( 'Opcional. O rodapé tem fundo verde-escuro; sem esta imagem, ele exibe a marca em texto.', 'arte1000' ) ),
+
 		'whatsapp'         => array( 'arte1000_contact', 'phone', __( 'WhatsApp (com DDI e DDD, só números)', 'arte1000' ) ),
 		'whatsapp_message' => array( 'arte1000_contact', 'textarea', __( 'Mensagem inicial do WhatsApp', 'arte1000' ) ),
 		'instagram'        => array( 'arte1000_contact', 'text', __( 'Usuário do Instagram (sem @)', 'arte1000' ) ),
@@ -194,6 +239,7 @@ function arte1000_customize_register( $wp_customize ) {
 
 	foreach ( $fields as $key => $field ) {
 		list( $section, $type, $label ) = $field;
+		$description = isset( $field[3] ) ? $field[3] : '';
 		$setting_id = 'arte1000_' . $key;
 
 		switch ( $type ) {
@@ -209,6 +255,12 @@ function arte1000_customize_register( $wp_customize ) {
 				break;
 			case 'phone':
 				$sanitize = 'arte1000_sanitize_phone';
+				break;
+			case 'brand':
+				$sanitize = 'arte1000_sanitize_brand_display';
+				break;
+			case 'number':
+				$sanitize = 'arte1000_sanitize_logo_height';
 				break;
 			default:
 				$sanitize = 'sanitize_text_field';
@@ -227,16 +279,33 @@ function arte1000_customize_register( $wp_customize ) {
 				new WP_Customize_Image_Control(
 					$wp_customize,
 					$setting_id,
-					array( 'label' => $label, 'section' => $section )
+					array(
+						'label'       => $label,
+						'description' => $description,
+						'section'     => $section,
+					)
+				)
+			);
+		} elseif ( 'brand' === $type ) {
+			$wp_customize->add_control(
+				$setting_id,
+				array(
+					'label'    => $label,
+					'section'  => $section,
+					'type'     => 'radio',
+					'choices'  => arte1000_brand_choices(),
+					'priority' => 9,
 				)
 			);
 		} else {
 			$wp_customize->add_control(
 				$setting_id,
 				array(
-					'label'   => $label,
-					'section' => $section,
-					'type'    => 'phone' === $type ? 'text' : $type,
+					'label'       => $label,
+					'description' => $description,
+					'section'     => $section,
+					'type'        => 'phone' === $type ? 'text' : $type,
+					'input_attrs' => 'number' === $type ? array( 'min' => 24, 'max' => 140, 'step' => 2 ) : array(),
 				)
 			);
 		}

@@ -39,7 +39,16 @@ Assinaturas visuais: imagens em formato de **arco** (remetendo ao encosto de uma
 - **Home — Entrega**: Correios, transportadora e retirada na loja (textos editáveis).
 - **Rodapé**: texto da marca, mapa e botão flutuante de WhatsApp.
 
-Logo: **Personalizar → Identidade do site → Logo**. Sem logo, o tema exibe a marca tipográfica **ARTE*1000***.
+## Logo e marca (Personalizar → Identidade do site)
+
+- **Logo**: envie em PNG transparente ou SVG (ideal: mín. 600 px de largura).
+- **Exibição da marca no cabeçalho**:
+  - *Automático* (padrão): mostra a logo, se enviada; sem logo, mostra a marca em texto **ARTE*1000***.
+  - *Logo + texto*: logo e nome lado a lado (no celular, só a logo, para caber).
+  - *Somente texto*: ignora a logo e mostra o nome.
+- **Frase abaixo do nome**: padrão "Móveis Artesanais".
+- **Altura da logo**: 24 a 140 px (no celular é limitada a 42 px).
+- **Logo para o rodapé (versão clara)**: opcional; o rodapé é verde-escuro. Sem ela, o rodapé mostra a marca em texto.
 
 Menus: **Aparência → Menus** — locais "Menu principal" e "Menu do rodapé".
 

@@ -99,20 +99,62 @@ function arte1000_icon( $name ) {
 }
 
 /**
- * Logotipo: logo personalizado ou marca tipográfica ARTE1000.
+ * Marca: logo enviada, texto ARTE1000 ou os dois, conforme o Customizer.
+ *
+ * No rodapé (fundo escuro) só é usada a "logo para o rodapé"; sem ela, exibe o texto.
+ *
+ * @param string $context "header" ou "footer".
  */
-function arte1000_logo() {
-	if ( has_custom_logo() ) {
-		the_custom_logo();
-		return;
+function arte1000_logo( $context = 'header' ) {
+	$mode = arte1000_opt( 'brand_display' );
+	$name = get_bloginfo( 'name' );
+	$logo = '';
+
+	if ( 'text' !== $mode ) {
+		if ( 'footer' === $context ) {
+			$url = arte1000_opt( 'footer_logo' );
+			if ( $url ) {
+				$logo = sprintf( '<img class="a1-brand__logo" src="%s" alt="%s" />', esc_url( $url ), esc_attr( $name ) );
+			}
+		} elseif ( has_custom_logo() ) {
+			$logo = wp_get_attachment_image(
+				get_theme_mod( 'custom_logo' ),
+				'full',
+				false,
+				array(
+					'class'   => 'a1-brand__logo',
+					'alt'     => $name,
+					'loading' => 'eager',
+				)
+			);
+		}
 	}
+
+	// Sem logo disponível, o texto sempre aparece; com logo, só no modo "both".
+	$show_text = ! $logo || 'both' === $mode;
+	$classes   = 'a1-brand' . ( $logo ? ' has-logo' : '' ) . ( $logo && $show_text ? ' has-both' : '' );
 	?>
-	<a class="a1-wordmark" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-		<span class="a1-wordmark__name">ARTE<em>1000</em></span>
-		<span class="a1-wordmark__tag"><?php esc_html_e( 'Móveis Artesanais', 'arte1000' ); ?></span>
+	<a class="<?php echo esc_attr( $classes ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( $name ); ?>">
+		<?php echo $logo; // phpcs:ignore WordPress.Security.EscapeOutput -- gerado por wp_get_attachment_image ou escapado acima. ?>
+		<?php if ( $show_text ) : ?>
+			<span class="a1-wordmark">
+				<span class="a1-wordmark__name">ARTE<em>1000</em></span>
+				<?php if ( arte1000_opt( 'brand_tagline' ) ) : ?>
+					<span class="a1-wordmark__tag"><?php echo esc_html( arte1000_opt( 'brand_tagline' ) ); ?></span>
+				<?php endif; ?>
+			</span>
+		<?php endif; ?>
 	</a>
 	<?php
 }
+
+/**
+ * Altura da logo definida no Customizer, como variável CSS.
+ */
+function arte1000_logo_height_css() {
+	printf( "<style id=\"arte1000-logo-height\">:root{--a1-logo-h:%dpx}</style>\n", (int) arte1000_opt( 'logo_height' ) );
+}
+add_action( 'wp_head', 'arte1000_logo_height_css', 20 );
 
 /**
  * Imagem do Customizer ou placeholder com textura de trama.
