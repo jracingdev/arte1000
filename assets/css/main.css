@@ -431,6 +431,7 @@ label { font-weight: 600; font-size: .9rem; }
 	padding: 24px 0 32px; border-top: 1px solid rgba(246, 241, 231, .12); font-size: .82rem; color: rgba(246, 241, 231, .5);
 }
 .a1-footer__bottom p { margin: 0; }
+.a1-footer__credit a { color: rgba(246, 241, 231, .75); font-weight: 600; letter-spacing: .04em; }
 
 /* WhatsApp flutuante -------------------------------------------------------- */
 .a1-float-wa {

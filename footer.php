@@ -85,6 +85,12 @@ $a1_email     = arte1000_opt( 'email' );
 					· <?php echo esc_html( arte1000_opt( 'signature' ) ); ?>
 				<?php endif; ?>
 			</p>
+			<?php if ( arte1000_opt( 'show_credit' ) ) : ?>
+				<p class="a1-footer__credit">
+					<?php esc_html_e( 'Desenvolvido por', 'arte1000' ); ?>
+					<a href="https://wa.me/5521982336975" target="_blank" rel="noopener">J RACING DEVELOPMENT</a>
+				</p>
+			<?php endif; ?>
 		</div>
 	</div>
 </footer>

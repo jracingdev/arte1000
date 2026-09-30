@@ -2,6 +2,9 @@
 /**
  * ARTE1000 — funções do tema.
  *
+ * Desenvolvido por J RACING DEVELOPMENT
+ * CNPJ 20.274.800/0001-08 · Contato: (21) 98233-6975
+ *
  * @package arte1000
  */
 

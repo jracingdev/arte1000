@@ -72,6 +72,7 @@ function arte1000_defaults() {
 		'footer_about'     => 'Cestarias, móveis e objetos artesanais em junco natural, criados à mão na Serra Fluminense para casas cheias de vida.',
 		'show_map'         => true,
 		'show_float_wa'    => true,
+		'show_credit'      => true,
 	);
 }
 
@@ -181,6 +182,7 @@ function arte1000_customize_register( $wp_customize ) {
 		'footer_about'     => array( 'arte1000_footer', 'textarea', __( 'Texto sobre a marca', 'arte1000' ) ),
 		'show_map'         => array( 'arte1000_footer', 'checkbox', __( 'Exibir mapa da loja na home', 'arte1000' ) ),
 		'show_float_wa'    => array( 'arte1000_footer', 'checkbox', __( 'Exibir botão flutuante de WhatsApp', 'arte1000' ) ),
+		'show_credit'      => array( 'arte1000_footer', 'checkbox', __( 'Exibir crédito do desenvolvedor', 'arte1000' ) ),
 	);
 
 	for ( $i = 1; $i <= 4; $i++ ) {

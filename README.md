@@ -2,6 +2,11 @@
 
 Tema comercial para a **ARTE1000 Móveis Artesanais**: cestarias, móveis, luminárias e objetos em **junco natural** feitos à mão na Serra Fluminense, com preço de fábrica e loja física em Itaipava, Petrópolis/RJ. Assinatura da marca: **ARTE 1000**.
 
+## Desenvolvimento
+
+Tema desenvolvido por **J RACING DEVELOPMENT** — CNPJ 20.274.800/0001-08 — contato (21) 98233-6975.
+O crédito no rodapé pode ser ocultado em *Personalizar → ARTE1000 → Rodapé*.
+
 ## Identidade visual
 
 | Token | Cor | Uso |
