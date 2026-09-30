@@ -1,0 +1,22 @@
+/* ARTE1000 — estilos do editor de blocos */
+body {
+	background: #F6F1E7;
+	color: #1E1A15;
+	font-family: "Manrope", system-ui, sans-serif;
+	font-size: 1.08rem;
+	line-height: 1.65;
+}
+h1, h2, h3, h4, h5, h6,
+.editor-post-title__input {
+	font-family: "Fraunces", Georgia, serif;
+	font-weight: 400;
+	letter-spacing: -.015em;
+	line-height: 1.12;
+}
+a { color: #B5623A; }
+blockquote {
+	border-left: 2px solid #C9A46A;
+	padding-left: 24px;
+	font-family: "Fraunces", Georgia, serif;
+	font-style: italic;
+}
